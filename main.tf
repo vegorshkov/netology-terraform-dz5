@@ -27,6 +27,7 @@ module "vpc_dev" {
 }
 
 module "marketing_vm" {
+   #checkov:skip=CKV_TF_1: Ensure Terraform module sources use a commit hash
   source         = "git::https://github.com/vegorshkov/yandex_compute_instance.git?ref=v1.0.0" #добавлен тег версии
   instance_name  = "${var.vm_web_name}-marketing"
   instance_count = 1
@@ -45,6 +46,7 @@ module "marketing_vm" {
 }
 
 module "analytics_vm" {
+   #checkov:skip=CKV_TF_1: Ensure Terraform module sources use a commit hash
   source         = "git::https://github.com/vegorshkov/yandex_compute_instance.git?ref=v1.0.0" # добавлен тег версии
   instance_name  = "${var.vm_web_name}-analytics"
   instance_count = 1

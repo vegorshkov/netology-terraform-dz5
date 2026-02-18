@@ -1,0 +1,598 @@
+[
+  {
+    "check_type": "terraform",
+    "results": {
+      "passed_checks": [
+        {
+          "check_id": "CKV_TF_2",
+          "bc_check_id": null,
+          "check_name": "Ensure Terraform module sources use a tag with a version number",
+          "check_result": {
+            "result": "PASSED",
+            "evaluated_keys": []
+          },
+          "code_block": [
+            [
+              29,
+              "module \"marketing_vm\" {\n"
+            ],
+            [
+              30,
+              "  source         = \"git::https://github.com/vegorshkov/yandex_compute_instance.git?ref=v1.0.0\" #добавлен тег версии\n"
+            ],
+            [
+              31,
+              "  instance_name  = \"${var.vm_web_name}-marketing\"\n"
+            ],
+            [
+              32,
+              "  instance_count = 1\n"
+            ],
+            [
+              33,
+              "  image_family   = \"ubuntu-2004-lts\"\n"
+            ],
+            [
+              34,
+              "  public_ip      = true\n"
+            ],
+            [
+              35,
+              "  # network_id     = yandex_vpc_network.develop.id      # закоментировано по заданию 2\n"
+            ],
+            [
+              36,
+              "  network_id     = module.vpc_dev.subnet_info.network_id\n"
+            ],
+            [
+              37,
+              "  # subnet_ids     = [yandex_vpc_subnet.develop.id]     # закоментировано по заданию 2\n"
+            ],
+            [
+              38,
+              "  subnet_ids     = [module.vpc_dev.subnet_id]\n"
+            ],
+            [
+              39,
+              "  subnet_zones   = [var.default_zone]\n"
+            ],
+            [
+              40,
+              "  labels         = local.projects.marketing.labels\n"
+            ],
+            [
+              41,
+              "  metadata = {\n"
+            ],
+            [
+              42,
+              "    user-data          = data.template_file.cloudinit.rendered\n"
+            ],
+            [
+              43,
+              "    serial-port-enable = 1\n"
+            ],
+            [
+              44,
+              "  }\n"
+            ],
+            [
+              45,
+              "}\n"
+            ]
+          ],
+          "file_path": "/main.tf",
+          "file_abs_path": "/home/vgorshkov/Desktop/Школа лидера поток.3/STUDENT/DZ/Terraform/upload/netology-terraform-dz5/main.tf",
+          "repo_file_path": "/main.tf",
+          "file_line_range": [
+            29,
+            45
+          ],
+          "resource": "marketing_vm",
+          "evaluations": null,
+          "check_class": "checkov.terraform.checks.module.generic.RevisionVersionTag",
+          "fixed_definition": null,
+          "entity_tags": null,
+          "caller_file_path": null,
+          "caller_file_line_range": null,
+          "resource_address": null,
+          "severity": null,
+          "bc_category": null,
+          "benchmarks": {},
+          "description": null,
+          "short_description": null,
+          "vulnerability_details": null,
+          "connected_node": null,
+          "guideline": null,
+          "details": [],
+          "check_len": null,
+          "definition_context_file_path": "/home/vgorshkov/Desktop/Школа лидера поток.3/STUDENT/DZ/Terraform/upload/netology-terraform-dz5/main.tf",
+          "breadcrumbs": {
+            "labels": [
+              {
+                "type": "locals",
+                "name": "projects",
+                "path": "/home/vgorshkov/Desktop/Школа лидера поток.3/STUDENT/DZ/Terraform/upload/netology-terraform-dz5/locals.tf",
+                "module_connection": false
+              }
+            ],
+            "subnet_zones": [
+              {
+                "type": "variable",
+                "name": "default_zone",
+                "path": "/home/vgorshkov/Desktop/Школа лидера поток.3/STUDENT/DZ/Terraform/upload/netology-terraform-dz5/variables.tf",
+                "module_connection": false
+              }
+            ],
+            "instance_name": [
+              {
+                "type": "variable",
+                "name": "vm_web_name",
+                "path": "/home/vgorshkov/Desktop/Школа лидера поток.3/STUDENT/DZ/Terraform/upload/netology-terraform-dz5/variables.tf",
+                "module_connection": false
+              }
+            ],
+            "subnet_ids": [
+              {
+                "type": "output",
+                "name": "subnet_id",
+                "path": "/home/vgorshkov/Desktop/Школа лидера поток.3/STUDENT/DZ/Terraform/upload/netology-terraform-dz5/vpc/outputs.tf",
+                "module_connection": false
+              }
+            ]
+          }
+        },
+        {
+          "check_id": "CKV_TF_2",
+          "bc_check_id": null,
+          "check_name": "Ensure Terraform module sources use a tag with a version number",
+          "check_result": {
+            "result": "PASSED",
+            "evaluated_keys": []
+          },
+          "code_block": [
+            [
+              47,
+              "module \"analytics_vm\" {\n"
+            ],
+            [
+              48,
+              "  source         = \"git::https://github.com/vegorshkov/yandex_compute_instance.git?ref=v1.0.0\" # добавлен тег версии\n"
+            ],
+            [
+              49,
+              "  instance_name  = \"${var.vm_web_name}-analytics\"\n"
+            ],
+            [
+              50,
+              "  instance_count = 1\n"
+            ],
+            [
+              51,
+              "  image_family   = \"ubuntu-2004-lts\"\n"
+            ],
+            [
+              52,
+              "  public_ip      = true\n"
+            ],
+            [
+              53,
+              "  # network_id     = yandex_vpc_network.develop.id   # закоментировано по заданию 2\n"
+            ],
+            [
+              54,
+              "  network_id     = module.vpc_dev.subnet_info.network_id\n"
+            ],
+            [
+              55,
+              "  # subnet_ids     = [yandex_vpc_subnet.develop.id]   # закоментировано по заданию 2\n"
+            ],
+            [
+              56,
+              "  subnet_ids     = [module.vpc_dev.subnet_id]\n"
+            ],
+            [
+              57,
+              "  subnet_zones   = [var.default_zone]\n"
+            ],
+            [
+              58,
+              "  labels         = local.projects.analytics.labels\n"
+            ],
+            [
+              59,
+              "  metadata = {\n"
+            ],
+            [
+              60,
+              "    user-data          = data.template_file.cloudinit.rendered\n"
+            ],
+            [
+              61,
+              "    serial-port-enable = 1\n"
+            ],
+            [
+              62,
+              "  }\n"
+            ],
+            [
+              63,
+              "}\n"
+            ]
+          ],
+          "file_path": "/main.tf",
+          "file_abs_path": "/home/vgorshkov/Desktop/Школа лидера поток.3/STUDENT/DZ/Terraform/upload/netology-terraform-dz5/main.tf",
+          "repo_file_path": "/main.tf",
+          "file_line_range": [
+            47,
+            63
+          ],
+          "resource": "analytics_vm",
+          "evaluations": null,
+          "check_class": "checkov.terraform.checks.module.generic.RevisionVersionTag",
+          "fixed_definition": null,
+          "entity_tags": null,
+          "caller_file_path": null,
+          "caller_file_line_range": null,
+          "resource_address": null,
+          "severity": null,
+          "bc_category": null,
+          "benchmarks": {},
+          "description": null,
+          "short_description": null,
+          "vulnerability_details": null,
+          "connected_node": null,
+          "guideline": null,
+          "details": [],
+          "check_len": null,
+          "definition_context_file_path": "/home/vgorshkov/Desktop/Школа лидера поток.3/STUDENT/DZ/Terraform/upload/netology-terraform-dz5/main.tf",
+          "breadcrumbs": {
+            "labels": [
+              {
+                "type": "locals",
+                "name": "projects",
+                "path": "/home/vgorshkov/Desktop/Школа лидера поток.3/STUDENT/DZ/Terraform/upload/netology-terraform-dz5/locals.tf",
+                "module_connection": false
+              }
+            ],
+            "subnet_zones": [
+              {
+                "type": "variable",
+                "name": "default_zone",
+                "path": "/home/vgorshkov/Desktop/Школа лидера поток.3/STUDENT/DZ/Terraform/upload/netology-terraform-dz5/variables.tf",
+                "module_connection": false
+              }
+            ],
+            "instance_name": [
+              {
+                "type": "variable",
+                "name": "vm_web_name",
+                "path": "/home/vgorshkov/Desktop/Школа лидера поток.3/STUDENT/DZ/Terraform/upload/netology-terraform-dz5/variables.tf",
+                "module_connection": false
+              }
+            ],
+            "subnet_ids": [
+              {
+                "type": "output",
+                "name": "subnet_id",
+                "path": "/home/vgorshkov/Desktop/Школа лидера поток.3/STUDENT/DZ/Terraform/upload/netology-terraform-dz5/vpc/outputs.tf",
+                "module_connection": false
+              }
+            ]
+          }
+        }
+      ],
+      "failed_checks": [
+        {
+          "check_id": "CKV_TF_1",
+          "bc_check_id": null,
+          "check_name": "Ensure Terraform module sources use a commit hash",
+          "check_result": {
+            "result": "FAILED",
+            "evaluated_keys": []
+          },
+          "code_block": [
+            [
+              29,
+              "module \"marketing_vm\" {\n"
+            ],
+            [
+              30,
+              "  source         = \"git::https://github.com/vegorshkov/yandex_compute_instance.git?ref=v1.0.0\" #добавлен тег версии\n"
+            ],
+            [
+              31,
+              "  instance_name  = \"${var.vm_web_name}-marketing\"\n"
+            ],
+            [
+              32,
+              "  instance_count = 1\n"
+            ],
+            [
+              33,
+              "  image_family   = \"ubuntu-2004-lts\"\n"
+            ],
+            [
+              34,
+              "  public_ip      = true\n"
+            ],
+            [
+              35,
+              "  # network_id     = yandex_vpc_network.develop.id      # закоментировано по заданию 2\n"
+            ],
+            [
+              36,
+              "  network_id     = module.vpc_dev.subnet_info.network_id\n"
+            ],
+            [
+              37,
+              "  # subnet_ids     = [yandex_vpc_subnet.develop.id]     # закоментировано по заданию 2\n"
+            ],
+            [
+              38,
+              "  subnet_ids     = [module.vpc_dev.subnet_id]\n"
+            ],
+            [
+              39,
+              "  subnet_zones   = [var.default_zone]\n"
+            ],
+            [
+              40,
+              "  labels         = local.projects.marketing.labels\n"
+            ],
+            [
+              41,
+              "  metadata = {\n"
+            ],
+            [
+              42,
+              "    user-data          = data.template_file.cloudinit.rendered\n"
+            ],
+            [
+              43,
+              "    serial-port-enable = 1\n"
+            ],
+            [
+              44,
+              "  }\n"
+            ],
+            [
+              45,
+              "}\n"
+            ]
+          ],
+          "file_path": "/main.tf",
+          "file_abs_path": "/home/vgorshkov/Desktop/Школа лидера поток.3/STUDENT/DZ/Terraform/upload/netology-terraform-dz5/main.tf",
+          "repo_file_path": "/main.tf",
+          "file_line_range": [
+            29,
+            45
+          ],
+          "resource": "marketing_vm",
+          "evaluations": null,
+          "check_class": "checkov.terraform.checks.module.generic.RevisionHash",
+          "fixed_definition": null,
+          "entity_tags": null,
+          "caller_file_path": null,
+          "caller_file_line_range": null,
+          "resource_address": null,
+          "severity": null,
+          "bc_category": null,
+          "benchmarks": {},
+          "description": null,
+          "short_description": null,
+          "vulnerability_details": null,
+          "connected_node": null,
+          "guideline": null,
+          "details": [],
+          "check_len": null,
+          "definition_context_file_path": "/home/vgorshkov/Desktop/Школа лидера поток.3/STUDENT/DZ/Terraform/upload/netology-terraform-dz5/main.tf",
+          "breadcrumbs": {
+            "labels": [
+              {
+                "type": "locals",
+                "name": "projects",
+                "path": "/home/vgorshkov/Desktop/Школа лидера поток.3/STUDENT/DZ/Terraform/upload/netology-terraform-dz5/locals.tf",
+                "module_connection": false
+              }
+            ],
+            "subnet_zones": [
+              {
+                "type": "variable",
+                "name": "default_zone",
+                "path": "/home/vgorshkov/Desktop/Школа лидера поток.3/STUDENT/DZ/Terraform/upload/netology-terraform-dz5/variables.tf",
+                "module_connection": false
+              }
+            ],
+            "instance_name": [
+              {
+                "type": "variable",
+                "name": "vm_web_name",
+                "path": "/home/vgorshkov/Desktop/Школа лидера поток.3/STUDENT/DZ/Terraform/upload/netology-terraform-dz5/variables.tf",
+                "module_connection": false
+              }
+            ],
+            "subnet_ids": [
+              {
+                "type": "output",
+                "name": "subnet_id",
+                "path": "/home/vgorshkov/Desktop/Школа лидера поток.3/STUDENT/DZ/Terraform/upload/netology-terraform-dz5/vpc/outputs.tf",
+                "module_connection": false
+              }
+            ]
+          }
+        },
+        {
+          "check_id": "CKV_TF_1",
+          "bc_check_id": null,
+          "check_name": "Ensure Terraform module sources use a commit hash",
+          "check_result": {
+            "result": "FAILED",
+            "evaluated_keys": []
+          },
+          "code_block": [
+            [
+              47,
+              "module \"analytics_vm\" {\n"
+            ],
+            [
+              48,
+              "  source         = \"git::https://github.com/vegorshkov/yandex_compute_instance.git?ref=v1.0.0\" # добавлен тег версии\n"
+            ],
+            [
+              49,
+              "  instance_name  = \"${var.vm_web_name}-analytics\"\n"
+            ],
+            [
+              50,
+              "  instance_count = 1\n"
+            ],
+            [
+              51,
+              "  image_family   = \"ubuntu-2004-lts\"\n"
+            ],
+            [
+              52,
+              "  public_ip      = true\n"
+            ],
+            [
+              53,
+              "  # network_id     = yandex_vpc_network.develop.id   # закоментировано по заданию 2\n"
+            ],
+            [
+              54,
+              "  network_id     = module.vpc_dev.subnet_info.network_id\n"
+            ],
+            [
+              55,
+              "  # subnet_ids     = [yandex_vpc_subnet.develop.id]   # закоментировано по заданию 2\n"
+            ],
+            [
+              56,
+              "  subnet_ids     = [module.vpc_dev.subnet_id]\n"
+            ],
+            [
+              57,
+              "  subnet_zones   = [var.default_zone]\n"
+            ],
+            [
+              58,
+              "  labels         = local.projects.analytics.labels\n"
+            ],
+            [
+              59,
+              "  metadata = {\n"
+            ],
+            [
+              60,
+              "    user-data          = data.template_file.cloudinit.rendered\n"
+            ],
+            [
+              61,
+              "    serial-port-enable = 1\n"
+            ],
+            [
+              62,
+              "  }\n"
+            ],
+            [
+              63,
+              "}\n"
+            ]
+          ],
+          "file_path": "/main.tf",
+          "file_abs_path": "/home/vgorshkov/Desktop/Школа лидера поток.3/STUDENT/DZ/Terraform/upload/netology-terraform-dz5/main.tf",
+          "repo_file_path": "/main.tf",
+          "file_line_range": [
+            47,
+            63
+          ],
+          "resource": "analytics_vm",
+          "evaluations": null,
+          "check_class": "checkov.terraform.checks.module.generic.RevisionHash",
+          "fixed_definition": null,
+          "entity_tags": null,
+          "caller_file_path": null,
+          "caller_file_line_range": null,
+          "resource_address": null,
+          "severity": null,
+          "bc_category": null,
+          "benchmarks": {},
+          "description": null,
+          "short_description": null,
+          "vulnerability_details": null,
+          "connected_node": null,
+          "guideline": null,
+          "details": [],
+          "check_len": null,
+          "definition_context_file_path": "/home/vgorshkov/Desktop/Школа лидера поток.3/STUDENT/DZ/Terraform/upload/netology-terraform-dz5/main.tf",
+          "breadcrumbs": {
+            "labels": [
+              {
+                "type": "locals",
+                "name": "projects",
+                "path": "/home/vgorshkov/Desktop/Школа лидера поток.3/STUDENT/DZ/Terraform/upload/netology-terraform-dz5/locals.tf",
+                "module_connection": false
+              }
+            ],
+            "subnet_zones": [
+              {
+                "type": "variable",
+                "name": "default_zone",
+                "path": "/home/vgorshkov/Desktop/Школа лидера поток.3/STUDENT/DZ/Terraform/upload/netology-terraform-dz5/variables.tf",
+                "module_connection": false
+              }
+            ],
+            "instance_name": [
+              {
+                "type": "variable",
+                "name": "vm_web_name",
+                "path": "/home/vgorshkov/Desktop/Школа лидера поток.3/STUDENT/DZ/Terraform/upload/netology-terraform-dz5/variables.tf",
+                "module_connection": false
+              }
+            ],
+            "subnet_ids": [
+              {
+                "type": "output",
+                "name": "subnet_id",
+                "path": "/home/vgorshkov/Desktop/Школа лидера поток.3/STUDENT/DZ/Terraform/upload/netology-terraform-dz5/vpc/outputs.tf",
+                "module_connection": false
+              }
+            ]
+          }
+        }
+      ],
+      "skipped_checks": [],
+      "parsing_errors": []
+    },
+    "summary": {
+      "passed": 2,
+      "failed": 2,
+      "skipped": 0,
+      "parsing_errors": 0,
+      "resource_count": 2,
+      "checkov_version": "3.2.504"
+    },
+    "url": "Add an api key '--bc-api-key <api-key>' to see more detailed insights via https://bridgecrew.cloud"
+  },
+  {
+    "check_type": "terraform_plan",
+    "results": {
+      "passed_checks": [],
+      "failed_checks": [],
+      "skipped_checks": [],
+      "parsing_errors": [
+        "./checkov-results.json"
+      ]
+    },
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "parsing_errors": 1,
+      "resource_count": 0,
+      "checkov_version": "3.2.504"
+    },
+    "url": "Add an api key '--bc-api-key <api-key>' to see more detailed insights via https://bridgecrew.cloud"
+  }
+]
