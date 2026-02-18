@@ -27,7 +27,7 @@ module "vpc_dev" {
 }
 
 module "marketing_vm" {
-  source         = "git::https://github.com/vegorshkov/yandex_compute_instance.git?ref=stable/2026-02-18" #добавлен тег версии
+  source         = "git::https://github.com/vegorshkov/yandex_compute_instance.git?ref=v1.0.0" #добавлен тег версии
   instance_name  = "${var.vm_web_name}-marketing"
   instance_count = 1
   image_family   = "ubuntu-2004-lts"
@@ -45,7 +45,7 @@ module "marketing_vm" {
 }
 
 module "analytics_vm" {
-  source         = "git::https://github.com/vegorshkov/yandex_compute_instance.git?ref=stable/2026-02-18" # добавлен тег версии
+  source         = "git::https://github.com/vegorshkov/yandex_compute_instance.git?ref=v1.0.0" # добавлен тег версии
   instance_name  = "${var.vm_web_name}-analytics"
   instance_count = 1
   image_family   = "ubuntu-2004-lts"
