@@ -35,3 +35,10 @@ terraform {
   # временно комментирую до сюда...
   # https://azbyka.ru/otechnik/Spravochniki/tolkovyj-slovar-zhivogo-velikorusskogo-jazyka-v-i-dalja-bukva-s/2856
 }
+
+provider "yandex" {
+  token     = var.token
+  cloud_id  = var.cloud_id
+  folder_id = var.folder_id
+  zone      = var.default_zone
+}
