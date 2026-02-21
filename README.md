@@ -91,3 +91,28 @@ static access key
 Фиксируем результат:
 ![alt text](image-19.png)
 
+Реконфигурация подготовка:
+![alt text](image-20.png)
+
+Запрашиваем ключи:
+![alt text](image-21.png)
+
+Подготовка:
+![alt text](image-22.png)
+
+Ищем некорректные данные (из-за 403)
+![alt text](image-23.png)
+![alt text](image-24.png)
+
+(Terraform S3 backend приоритетно использует:
+1.Переменные окружения AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY
+2.Потом backend-config
+3.Потом shared credentials
+
+У меня в окружении экспортирована ДРУГАЯ пара ключей.
+Поэтому backend вообще не использует backend.hcl ключи.
+Именно поэтому подпись не совпадает.)
+
+Ключи прошли, вижу lock
+![alt text](image-25.png)
+
