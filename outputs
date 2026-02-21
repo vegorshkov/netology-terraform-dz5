@@ -1,0 +1,54 @@
+output "marketing_vm" {
+  value = module.marketing_vm
+}
+
+output "analytics_vm" {
+  value = module.analytics_vm
+}
+
+
+# module "vpc_prod" {
+#   source    = "./vpc"
+#   env_name  = "production"
+#   subnets = [
+#     { zone = "ru-central1-a", cidr = "10.0.1.0/24" },
+#     { zone = "ru-central1-b", cidr = "10.0.2.0/24" },
+#     { zone = "ru-central1-c", cidr = "10.0.3.0/24" },
+#   ]
+#   token     = var.token
+#   cloud_id  = var.cloud_id
+#   folder_id = var.folder_id
+# }
+
+# outputs для просмотра результатов
+output "prod_dynamic_subnets" {
+  description = "Production VPC subnet information"
+  value       = module.vpc_prod.dynamic_subnet_info
+}
+
+output "prod_subnet_map" {
+  description = "Production VPC subnet map (zone -> id)"
+  value       = module.vpc_prod.dynamic_subnet_ids
+}
+
+#старые outputs
+output "prod_network_id" {
+  value = module.vpc_prod.network_id
+}
+
+# Outputs для задания 4*
+output "prod_dynamic_subnets" {
+  description = "Production VPC subnet information"
+  value       = module.vpc_prod.dynamic_subnet_info
+}
+
+output "prod_subnet_map" {
+  description = "Production VPC subnet map (zone -> id)"
+  value       = module.vpc_prod.dynamic_subnet_ids
+}
+
+output "prod_network_id" {
+  description = "Production VPC network ID"
+  value       = module.vpc_prod.network_id
+}
+
