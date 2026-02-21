@@ -140,6 +140,7 @@ terraform init -migrate-state -backend-config=backend.hcl -lock=false
 
 Задание 3
 Выполняю создание branch ветки.
+![alt text](image-33.png)
 
 Не совсем успеваю, но присылаю линк и делаю дальше в этом же репозитории...
 сегодня 21.02 23:47
