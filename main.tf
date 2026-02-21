@@ -5,7 +5,6 @@ data "template_file" "cloudinit" {
   }
 }
 
-# ✅ ОДНА общая сеть для всех ВМ
 module "vpc_main" {
   source    = "./vpc"
   env_name  = "main"
