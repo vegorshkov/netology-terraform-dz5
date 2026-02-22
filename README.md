@@ -239,6 +239,14 @@ terraform plan -var='in_the_end_there_can_be_only_one={Dunkan=true,Connor=true}'
 Скачайте с её помощью ваш репозиторий с кодом и инициализируйте инфраструктуру.
 Уничтожьте инфраструктуру тем же способом.
 
+Создан terraform.yml
+![alt text](image-58.png)
+
+Выполнен RUN
+
+![alt text](image-59.png)
+
+
 
 Задание 7*
 Настройте отдельный terraform root модуль, который будет создавать инфраструктуру для remote state:

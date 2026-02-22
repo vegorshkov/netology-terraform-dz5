@@ -13,7 +13,7 @@ terraform {
   }
 
   # Добавляем пустой для "terraform init -migrate-state -backend-config=backend.hcl"
-  backend "s3" {}
+  # backend "s3" {}   # перенесено в CI\CD
 
   # временно комментирую от сюда и...
   # backend "s3" {
