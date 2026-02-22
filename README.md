@@ -255,17 +255,8 @@ terraform plan -var='in_the_end_there_can_be_only_one={Dunkan=true,Connor=true}'
 
 
 Задание 7*
-Настройте отдельный terraform root модуль, который будет создавать инфраструктуру для remote state:
-S3 bucket для tfstate с версионированием
-Сервисный аккаунт с необходимыми правами (storage.editor)
-Static access key для сервисного аккаунта
-Output должен содержать:
-Имя bucket
-Access key ID и Secret key (sensitive)
-Пример конфигурации backend для использования
-После создания инфраструктуры используйте outputs для настройки backend в основном проекте.
-Примечание: Так как используется use_lockfile = true, создавать YDB/DynamoDB больше не требуется. Блокировки реализованы встроенным механизмом Terraform и хранятся в том же S3 bucket.
+Настройте отдельный terraform root модуль.
 
-
-
+Реализуется тут:
+https://github.com/vegorshkov/terraform_root_module
 
