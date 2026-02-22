@@ -42,3 +42,28 @@ variable "subnets" {
   description = "List of subnets with zones and CIDR blocks"
   default     = []
 }
+
+variable "single_ip" {
+  type        = string
+  description = "IP-адрес"
+
+  default     = "192.168.0.1"  # можно менять на некорректный для теста
+
+  validation {
+    condition     = can(cidrhost("${var.single_ip}/32", 0))
+    error_message = "Значение должно быть корректным IP-адресом"
+  }
+}
+
+variable "ip_list" {
+  type        = list(string)
+  description = "Список IP-адресов"
+
+  default     = ["192.168.0.1", "1.1.1.1", "127.0.0.1"] # тест корректных
+
+  validation {
+    condition     = alltrue([for ip in var.ip_list : can(cidrhost("${ip}/32", 0))])
+    error_message = "Все элементы списка должны быть корректными IP-адресами"
+  }
+}
+
