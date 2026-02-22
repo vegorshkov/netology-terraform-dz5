@@ -1,0 +1,31 @@
+name: Terraform Destroy
+
+# workflow_dispatch позволяет запускать вручную из UI
+on:
+  workflow_dispatch:
+
+jobs:
+  destroy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Сначала забираем код
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Устанавливаем Terraform нужной версии
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: "1.12.2"
+
+      # Инициализация Terraform
+      - name: Terraform Init
+        run: terraform init
+
+      # Уничтожение инфраструктуры
+      - name: Terraform Destroy
+        run: terraform destroy -auto-approve \
+          -var="access_key=${{ secrets.TF_ACCESS_KEY }}" \
+          -var="secret_key=${{ secrets.TF_SECRET_KEY }}"
+    
