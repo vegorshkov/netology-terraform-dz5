@@ -189,6 +189,8 @@ COMMIT:
 Выполняем сравнение веток и создаем PR:
 ![alt text](image-48.png)
 
+![alt text](image-49.png)
+
 
 
 
