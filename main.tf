@@ -19,7 +19,7 @@ module "vpc_main" {
 }
 
 module "marketing_vm" {
-  source         = "git::https://github.com/vegorshkov/yandex_compute_instance.git?ref=db43ab3"
+  source         = "git::https://github.com/vegorshkov/yandex_compute_instance.git?ref=v1.0.2"
 
   instance_name  = "${var.vm_web_name}-marketing"
   instance_count = 1
@@ -39,7 +39,7 @@ module "marketing_vm" {
 }
 
 module "analytics_vm" {
-  source         = "git::https://github.com/vegorshkov/yandex_compute_instance.git?ref=db43ab3"
+  source         = "git::https://github.com/vegorshkov/yandex_compute_instance.git?ref=v1.0.2"
 
   instance_name  = "${var.vm_web_name}-analytics"
   instance_count = 1
