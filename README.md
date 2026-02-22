@@ -138,11 +138,62 @@ terraform init -migrate-state -backend-config=backend.hcl -lock=false
 ![alt text](image-32.png)
 
 
-Задание 3
+Задание 3 "Проверье код с помощью tflint и checkov, исправьте все предупреждения и ошибки в 'terraform-hotfix', сделайте коммит."
 Выполняю создание branch ветки.
+![alt text](image-33.png)
 
-Не совсем успеваю, но присылаю линк и делаю дальше в этом же репозитории...
-сегодня 21.02 23:47
+
+Проверка на ошибки с помощью checkov
+![alt text](image-34.png)
+![alt text](image-35.png)
+![alt text](image-36.png)
+
+Аналил и исправление:
+
+1)  file backend.hcl уже находитсяв .gitignore
+![alt text](image-37.png)
+но думаю вытащить в локальную переменную.
+![alt text](image-40.png)
+
+
+2)  chekov рекомендует заменить tag на hash commit
+```
+git log -1 --format=%h
+
+db43ab3
+
+меняю
+
+```
+Проверка:
+![alt text](image-38.png)
+![alt text](image-39.png)
+
+FIXED:  
+![alt text](image-41.png)
+
+
+Проверка на ошибки с помощью tflint:
+![alt text](image-43.png)
+
+FIED:
+![alt text](image-44.png)
+
+COMMIT:
+Мы уже находимся в ветке хотфикс: https://github.com/vegorshkov/netology-terraform-dz5/tree/terraform-hotfix
+![alt text](image-45.png)
+![alt text](image-46.png)
+Запушил изменения в ветку:
+![alt text](image-47.png)
+
+Выполняем сравнение веток и создаем PR:
+![alt text](image-48.png)
+
+![alt text](image-49.png)
+
+
+
+
 
 Остается:
 
