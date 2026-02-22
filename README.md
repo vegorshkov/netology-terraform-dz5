@@ -180,12 +180,14 @@ FIED:
 ![alt text](image-44.png)
 
 COMMIT:
-Мы уже находимся в ветке хотфикс:
+Мы уже находимся в ветке хотфикс: https://github.com/vegorshkov/netology-terraform-dz5/tree/terraform-hotfix
 ![alt text](image-45.png)
 ![alt text](image-46.png)
 Запушил изменения в ветку:
 ![alt text](image-47.png)
 
+Выполняем сравнение веток и создаем PR:
+![alt text](image-48.png)
 
 
 
