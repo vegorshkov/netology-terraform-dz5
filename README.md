@@ -246,6 +246,12 @@ terraform plan -var='in_the_end_there_can_be_only_one={Dunkan=true,Connor=true}'
 
 ![alt text](image-59.png)
 
+Запускается
+![alt text](image-60.png)
+
+Фиксим
+![alt text](image-61.png)
+
 
 
 Задание 7*
