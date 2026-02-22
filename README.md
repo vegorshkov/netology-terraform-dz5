@@ -182,6 +182,10 @@ FIED:
 COMMIT:
 Мы уже находимся в ветке хотфикс:
 ![alt text](image-45.png)
+![alt text](image-46.png)
+Запушил изменения в ветку:
+![alt text](image-47.png)
+
 
 
 
